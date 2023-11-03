@@ -99,12 +99,62 @@ class LibraryBook:
 
     pass
 # Adicionado uma instância a classe:
-class LibraryBook:
+mybook = LibraryBook    
+# Criando uma class com o metodo "__init__" e passando valores usando a instância:
+class Books(object):
 
+    def __init__(self, autor, titulo, ano):
+        self.autor = autor
+        self.titulo = titulo
+        self.ano_lanc = ano
+
+stevejobs = Books
+stevejobs.autor = "Water Isaacson"
+stevejobs.titulo = " Steve Jobs por Water Isaacson"
+stevejobs.ano_lanc  = 2012
+# passando todas os dados para "__init__" por parâmetro:
+stevejobs = Books("Water Isaacson", "Steve Jobs por Water Isaacson", 2012)
+# adiconado métodos para a classe:
+class Books(object):
+
+    def __init__(self, autor, titulo, ano):
+        self.autor = autor
+        self.titulo = titulo
+        self.ano_lanc = ano
+    
+    # Método que retorna as infos como string:
+    def title_and_autor(self):
+        return "{} {}: {}" .format(self.autor[1], self.autor[0], self.titulo)
+    # método que retorna todas as infos do livro:
+    def __str__(self):
+        return "{} {} ({}): {}" .format(self.autor[1], self.autor[0], self.titulo, self.ano_lanc)
+    
+stevejobs = Books(("Water Isaacson", "Appla computers", 2010))
+# declarando classes pai e filho com herança:
+class Avo(object): # Classe pai
     pass
+class Pai():
+    pass
+class Filho():
+    pass
+# chamando um método por herança:
+class carros(object):
+    def Minhasmotos(self):
+        return "Fan 2011"
+class carros2(carros):
+    pass
+class carros3(carros):
+    pass
+# chamando a função "MinhasMotos" da classe pai:
+teste = carros3()
+teste.Minhasmotos()
+# Substituindo o valor do método da classe pai
+class carros3(carros):
+    def Minhasmotos(self):
+        return"Crosser 2016"
 
-my_book = LibraryBook
-print(type(my_book))
+
+
 
 
 
