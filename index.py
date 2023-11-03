@@ -152,6 +152,90 @@ teste.Minhasmotos()
 class carros3(carros):
     def Minhasmotos(self):
         return"Crosser 2016"
+# Acessando o método de construtor tanto na classe pai como na classe filha:
+class Father(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return "My name is {}".format(self.name)
+    
+class Son(Father):
+    
+    def __init__(self, name):
+        self.name = name
+# Buscando o __init__ da classe filha:
+name = Son("Reed")
+# Buscando o a classe pai:
+nametwo = Father("Steve")
+print(name)
+print(nametwo)
+
+
+# BIBLIOTECAS:
+
+# Usando a biblioteca Math:
+import math
+# Usando método de calcular potência:
+print("2 ^ 3 = ",math.pow(2,3))
+# Método teto:
+print(math.ceil(3.57)) # = 4
+# método piso:
+print(math.floor(4.87)) # = 4
+# método de valor absoluto:
+print(math.fabs(-934.66)) # = 934.66
+# Método de logaritimo com base "e" e especificando a base:
+print(math.log(1000))
+print(math.log(100,10)) # Log de 100 na base 10.
+
+# Operações com vetores:
+
+# Multiplicando elem de uma lista:
+[1,2,3] * 3 # res = [1,2,3,1,2,3,1,2,3]
+# Para multiplicar a lista como um vetor se faz isso:
+[i * 3 for i in[1,2,3]] # res = [3,6,9]
+# somando dois vetores:
+[1,2,3] + [4,5,6]
+# Somando o VALOR de dois vetores:
+a = [1,2,3]
+b = [4,5,6]
+[a[i] + b[i] for i in range(len(a))]
+# multiplicando valores de dois vetores:
+x = [1,2,3]
+y = [4,5,6]
+total = 0
+for i in range(len(a)):
+    total = total + x[i] * y[i]
+
+# NUMPY:
+
+# Calculando produto escalar com numpy:
+
+import numpy as np
+
+x = np.array([1,2,3])
+y =  np.array([4,5,6])
+# Usando método dot() para calcular:
+np.dot(x,y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
