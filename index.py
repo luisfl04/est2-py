@@ -218,6 +218,12 @@ x = np.array([1,2,3])
 y =  np.array([4,5,6])
 # Usando método dot() para calcular:
 np.dot(x,y)
+# método sum() para multiplicar os vetores:
+np.sum(x * y)
+# criando matrizes multidimensionais com o método ones():
+np.ones((3,3,3)) # 3 matrizes de 3 linhas e 3 colunas, respectivamente.
+
+# Usando numpy, scipy e matplotlib para analisar dados:
 
 
 
