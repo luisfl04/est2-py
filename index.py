@@ -225,6 +225,50 @@ np.ones((3,3,3)) # 3 matrizes de 3 linhas e 3 colunas, respectivamente.
 
 # Usando numpy, scipy e matplotlib para analisar dados:
 
+import numpy as np
+import scipy.optimize as opt
+import matplotlib.pyplot as plt
+
+# Dados que o usuário inseriu:
+A = [4.0, 3.5, 3.0, 2.5, 2.0]
+B = [1.31, 1.14, 0.97, 0.81, 0.76]
+AError = [0.2, 0.2, 0.2, 0.2, 0.2]
+BError = [0.03, 0.02, 0.04, 0.02, 0.05]
+
+print("Exsstimated B for each error:\n")
+
+for i in range(5):
+    print(str(A[i]) + "+-" + str(AError[i]) + ": " + str(B[i]) + "+-" + str(BError[i]))
+# aplicando a biblioteca numpy para fazer dos dados brutos uma matriz multidimensional:
+x = np.array(A)
+y = np.array(B)
+xError = np.array(AError)
+yError = np.array(BError)
+
+# defifinindo uma função linear para ajuste do gráfico:
+def func(d,e,f):
+    return d * e + f
+# Criando um matriz com infos de variância e covariância de inclinação:
+w, u = opt.curve_fit(func, x, y)
+# aplicando cordenadas x e o resultado otimizado sobre o ajuste da curva(opt.curve_fit) para encontrar a linha de melhor ajuste:
+yflit = func(x, *w)
+
+# Usando matplotlib para criar gráfico:
+# Personalizando gráfico:
+plt.errorbar(A,B, xerr= AError, yerr= BError, fmt= "o" , ms = 3)
+plt.plot(x, yflit, label = "flit", linewidth = 1.5, linestyle = "dashed")
+# Adicionado titulos e etiquetas ao gráfico:
+plt.title(" A vs B Custo benefício")
+plt.xlabel(" Custo padrão esperado A (X)")
+plt.ylabel("Benefícios de acordo com informações adicionadas B (Y)")
+#Printando:
+print("Parâmetros esperados entre A e B: ", w)
+print("Variância esperada entre os meses: ", np.sqrt(np.diag(u)))
+# salvando o gráfico:
+plt.savefig("Teste.jpg")
+plt.show()
+
+
 
 
 
