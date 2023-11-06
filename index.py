@@ -268,8 +268,72 @@ print("Variância esperada entre os meses: ", np.sqrt(np.diag(u)))
 plt.savefig("Teste.jpg")
 plt.show()
 
+# Embaralhando e sorteando elementos usando a biblioteca random:
 
+import random
 
+times = ["flamengo", "corinthians", "Vitoria", "Real Madrid" , "Manchester United"]
+# Embaralhando lista:
+random.shuffle(times)
+# Sorteando um elemento da lista:
+sorteio = random.choice(times)
+# ordenando elementos de uma lista:
+times.sort(reverse= True) # Ordem decrescente
+times.sort(reverse= False) # Ordem crescente
+# copiando elementos de uma lista:
+times2 = list(times)
+# fazendo backup de uma lista:
+cursos_ti = ["s.i", "ads", "ciência da computação"]
+lista_de_backup = ["s.i", "ads","ciência da computação"]
+
+backup = list(lista_de_backup)
+
+if backup == cursos_ti:
+    cursos_ti.clear()
+    print("Backup feito! A lista original foi excluida.")
+else:
+    print("Erro! as listas não são iguais.")
+
+# contando quantas vezes um elem se repete em uma lista:
+numeros = [1,1,12]
+contagem = numeros.count(1)
+# retorndo o elemento e o índice de uma lista com o método enumerate():
+
+nomes = ["amelio", "Lassester", "michel scott"]
+
+for indice, elementos in enumerate(nomes):
+    print(f"{elementos} está contido no índice {indice}")
+
+# criando uma lista aninhada:
+matriz = [[1,2,3], [4,5,6], [7,8,9]]
+# Somando elementos das listas aninhadas:
+soma_matriz = matriz[0][1] + matriz[1][1] + matriz[2][1] # nesse exemplo foi somado todos os segundos elementos das listas, ultilizando os índices externos e internos.
+# somando elementos de uma matriz:
+
+lista = [[3,7,1], [6,9,0], [13,5,2]]
+
+tr_A = 0 # Soma de elementos iguais da matriz
+soma_a = 0 # Soma de todos os elem da matriz
+
+lin = len(lista) # quantidade de elementos da lista
+col = len(lista[0]) # Quantidades de elementos no primeiro indice da lista
+
+for i in range(lin):
+    for j in range(col):
+        if i == j:
+            # elementos iguais na diagonal da matriz:
+            tr_A = tr_A + lista[i] [j]
+
+        # Somando todos os elem:
+        soma_a = soma_a + lista[i] [j]
+
+print(f"Elementos iguais na diagonal da matriz: {tr_A}")
+print(f"Soma de todos os elem: {soma_a}")
+# Criando uma lista com o método "comprehensions":
+# exemplos:
+minha_lista = [x + 1 for x in range(10)]
+minha_lista = [x for x in range(10) if x % 2 == 0] # retorna osvalores pares de 0 a 10.
+minha_lista = [x for x in "HACKETON"]
 
 
 
