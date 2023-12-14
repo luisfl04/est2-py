@@ -336,6 +336,60 @@ minha_lista = [x for x in range(10) if x % 2 == 0] # retorna osvalores pares de 
 minha_lista = [x for x in "HACKETON"]
 
 
+# Aplicações Thread:
+
+import threading
+
+def trabalhador(num):
+
+    while True:
+        ativas = threading.active_count() -1
+        print(f"Trabalhador {num} de {ativas} threads ativas.")
+        # return
+
+for i in range(5):
+    t = threading.Thread( target = trabalhador, args = (i,))
+    t.start()
+
+# Programa que calcula uma função separadamente e compaçadamente usando threads e timesleep:
+
+from math import sin
+import time
+
+def expoente(x):
+    global resposta_expoente
+    time.sleep(5)
+    resposta_expoente = x ** 2
+
+def multiplicacao(x):
+    global resposta_multiplicacao
+    time.sleep(10)
+    resposta_multiplicacao = 5 * x
+
+def seno(x):
+    global resposta_seno
+    time.sleep(15)
+    resposta_seno = sin(x)
+
+if __name__ == "__main__":
+    x = 2
+
+    thread_um = threading.Thread( target = expoente, args = (x,))
+    thread_dois = threading.Thread( target = multiplicacao, args = (x,))
+    thread_tres = threading.Thread(target = seno, args = (x,))
+    thread_um.start()
+    thread_um.join()
+    thread_dois.start()
+    thread_dois.join()
+    thread_tres.start()
+    thread_tres.join()
+
+    soma_final = resposta_expoente + resposta_multiplicacao + resposta_seno
+    print("Dada a função f(x) = x^2 + 5*x + sen(x)")
+    print(f"Para x = {x}, temos como produto: {soma_final:.2f}")
+
+# Programa que ilustra o consumidor e produtor no acesso de um "armazém":
+
 
 
 
